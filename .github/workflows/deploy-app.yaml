@@ -1,0 +1,15 @@
+name: deploy-app
+
+on:
+  push:
+    branches:
+      - main
+      - feature/*
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print branch
+        run: echo "Running on push event for branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}"
